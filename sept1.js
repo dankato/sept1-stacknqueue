@@ -191,18 +191,36 @@ function matchParens(expression) {
   } 
 
   return true;
-  
-
-  // console.log(parenStack)
-  //return whatever we get back
 }
 
 // console.log(matchParens("()"));
 // console.log(matchParens("(1 + 2) + 3"));
 // console.log(matchParens("(1 + 2))))))) + 3"));
 // console.log(matchParens('()))))((()())'));
+let queue = new Queue();
 
+queue.enqueue('F Jane');
+queue.enqueue('M Frank');
+queue.enqueue('M John');
+queue.enqueue('M Sherlock');
+queue.enqueue('F Madonna');
+queue.enqueue('M David');
+queue.enqueue('M Chris');
+queue.enqueue('F Beyonce');
+// console.log('some text', queue.length)
+function squareDance(queue) {
+  console.log(queue)
+  console.log('hello intro')
+  //need to have a function that pairs F with M in a correct queue
+  for(let i = 0; i < 1; i++) {
+    console.log('hello for loop')
+    let gender =  queue.charAt(0);
+    // console.log(gender)
+  }
+  // console.log('string ', queue)
+}
 
+squareDance(queue);
 
 
 
