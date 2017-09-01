@@ -2,7 +2,7 @@
 
 
 // Stack (Last In First Out)
-console.log('-- Stack ----------------');
+// console.log('-- Stack ----------------');
 
 // Creates a node containing the data and a reference to the next item
 function createNode (data = null, next = null) {
@@ -51,7 +51,7 @@ function display() {
 		// displays the entire contents of the stack
   let node = s.top;
   while (node !== null) {
-    console.log(node.data);
+    // console.log(node.data);
     node = node.next;
   }
 }
@@ -73,7 +73,7 @@ display();
 
 
 // Queue (First In First Out)
-console.log('-- Queue ----------------');
+// console.log('-- Queue ----------------');
 
 function createNode(data = null, next = null, prev = null) {
   return {
@@ -121,7 +121,7 @@ let q = new Queue();
 function displayQueue() {
   let node = q.first;
   while (node !== null) {
-    console.log(node.data);
+    // console.log(node.data);
     node = node.prev;
   }
 }
@@ -153,29 +153,31 @@ q.enqueue('Chris');
 
 // Palindromes
 
-console.log('-- Palindromes ----------------');
+// console.log('-- Palindromes ----------------');
 
 function is_palindrome(string) {
-  const toLowerCase = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-let pStack = new Stack();
-  console.log('whats my stack?: ', pStack);
-  console.log('whats my string?: ', string);
+  string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  let pStack = new Stack();
 
   for(let i = 0; i < string.length; i++) {
-
-    // console.log(i);
     // take every letter and push it into new Stack
-    let letter = toLowerCase.charAt(i);
-    console.log(letter);
+    let letter = string.charAt(i);
     pStack.push(letter);
   }
+
+  for(let i = 0; i < string.length; i++) {
+        let letter = string.charAt(i);
+        if(letter !== pStack.pop()) {
+          return false;
+        } 
+      }
   return true;
 }
 
 // true, true, true
-console.log(is_palindrome('dad'));
+// console.log(is_palindrome('dad'));
 // console.log(is_palindrome('A man, a plan, a canal: Panama'));
-console.log(is_palindrome('1002'));
+// console.log(is_palindrome('1001'));
 
 
 
