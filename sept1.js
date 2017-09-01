@@ -2,7 +2,6 @@
 
 
 // Stack (Last In First Out)
-// console.log('-- Stack ----------------');
 
 // Creates a node containing the data and a reference to the next item
 function createNode (data = null, next = null) {
@@ -18,40 +17,44 @@ class Stack {
   }
 
   push(data) {
-		// if the top of the stack is empty, then the data will be the top of the stack.
+    //if the top of the stack is empty, then the data will be the
+    //top of the stack
     if (this.top === null) {
-      this.top = createNode(data);
-      return this.top;
+        this.top = createNode(data);
+        return this.top;
     }
-		// if the top already has something then create a new node add data to the new node have the pointer point to the top.
+
+    //if the top already has something then create a new node
+    //add data to the new node
+    // have the pointer point to the top 
     const node = createNode(data, this.top);
     this.top = node;
-  }
+}
 
   pop() {
-		// in order to remove the top of the stack, you have anything then the stack is empty otherwise return what's on the top
-    if(s.top === null) {
+    // console.log('THIS', this)
+    // in order to remove the top of the stack, you have anything then the stack is empty otherwise return what's on the top
+    if(this.top === null) {
       return null;
     }
     const node = this.top;
     this.top = node.next;
     return node.data;
   }
-}
 
-function peek() {
-		// if the top of the stack does not have anything then teh stack is empty otherwise return what's on the top.
-  if(s.top === null) {
-    return null;
+  peek() {
+      // if the top of the stack does not have anything then teh stack is empty otherwise return what's on the top.
+    if(this.top === null) {
+      return null;
+    }
+    return this.top.data;
   }
-  return s.top.data;
 }
 
 function display() {
 		// displays the entire contents of the stack
   let node = s.top;
   while (node !== null) {
-    // console.log(node.data);
     node = node.next;
   }
 }
@@ -59,21 +62,20 @@ function display() {
 // Stack Tests
 
 let s = new Stack();
-s.push(1);
-s.push(2);
-s.push('Tauhida');
-// console.log('Top of stack:', peek());
+// s.push(1);
+// s.push(2);
+// s.push('Tauhida');
+// // console.log('Top of stack:', peek());
 
-s.pop();
-s.push('joe');
-// console.log('Top of stack:', peek());
+// s.pop();
+// s.push('joe');
+// // console.log('Top of stack:', peek());
 
-display();
+// display();
 
 
 
 // Queue (First In First Out)
-// console.log('-- Queue ----------------');
 
 function createNode(data = null, next = null, prev = null) {
   return {
@@ -121,39 +123,22 @@ let q = new Queue();
 function displayQueue() {
   let node = q.first;
   while (node !== null) {
-    // console.log(node.data);
     node = node.prev;
   }
 }
 
-
 // Queue Tests 
-
-
 q.enqueue('Tauhida');
 q.enqueue('Joe');
 q.enqueue('Tim');
-
-// console.log('--what is in the queue------------');
 // displayQueue();
-
-// console.log('q.dequeued Tim: ', q.dequeue());
-
 q.enqueue('Alison');
 q.enqueue('Chris');
-// console.log('dequeued Joe: ', q.dequeue());
 
-// console.log('--what is in the queue------------');
 // displayQueue();
 
-
-
-// Stack and Queue exercises.md
 // https://gist.github.com/tparveen/556fd8789d45cc0c67b46fcdf1ca03de
-
 // Palindromes
-
-// console.log('-- Palindromes ----------------');
 
 function is_palindrome(string) {
   string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
@@ -178,6 +163,46 @@ function is_palindrome(string) {
 // console.log(is_palindrome('dad'));
 // console.log(is_palindrome('A man, a plan, a canal: Panama'));
 // console.log(is_palindrome('1001'));
+
+//Matching parens in expression
+
+function matchParens(expression) {
+  //for loop to exclude parens
+  let parenStack = new Stack();
+
+  for(let i = 0; i < expression.length; i++) {
+    let character = expression.charAt(i);
+
+    if(character === '(') {
+      parenStack.push(character);
+    } else if(character === ')') {
+
+        let test = parenStack.peek();
+      
+        if(!test) {
+          return false;
+        }
+        parenStack.pop();
+    }
+  }
+
+  if (parenStack.peek()) {
+    return false;
+  } 
+
+  return true;
+  
+
+  // console.log(parenStack)
+  //return whatever we get back
+}
+
+// console.log(matchParens("()"));
+// console.log(matchParens("(1 + 2) + 3"));
+// console.log(matchParens("(1 + 2))))))) + 3"));
+// console.log(matchParens('()))))((()())'));
+
+
 
 
 
