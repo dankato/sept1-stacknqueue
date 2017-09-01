@@ -134,20 +134,45 @@ q.enqueue('Tauhida');
 q.enqueue('Joe');
 q.enqueue('Tim');
 
-console.log('--what is in the queue------------');
-displayQueue();
+// console.log('--what is in the queue------------');
+// displayQueue();
 
-console.log('q.dequeued Tim: ', q.dequeue());
+// console.log('q.dequeued Tim: ', q.dequeue());
 
 q.enqueue('Alison');
 q.enqueue('Chris');
-console.log('dequeued Joe: ', q.dequeue());
+// console.log('dequeued Joe: ', q.dequeue());
 
-console.log('--what is in the queue------------');
-displayQueue();
+// console.log('--what is in the queue------------');
+// displayQueue();
 
 
 
+// Stack and Queue exercises.md
+// https://gist.github.com/tparveen/556fd8789d45cc0c67b46fcdf1ca03de
+
+// Palindromes
+
+console.log('-- Palindromes ----------------');
+let pStack = new Stack();
+function is_palindrome(string, s2) {
+  string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  console.log('whats my stack?: ', pStack);
+  console.log('whats my string?: ', string);
+  // loop
+  for(let i = 0; i < string.length; i++) {
+    // push
+    // console.log(i);
+    pStack.push(string);
+  }
+  console.log('returned: ', string);
+  return true;
+}
+
+// true, true, true
+console.log(is_palindrome('dad'));
+console.log(is_palindrome('A man, a plan, a canal: Panama'));
+console.log(is_palindrome('1002'));
 
 
 
