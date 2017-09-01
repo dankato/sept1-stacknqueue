@@ -154,27 +154,34 @@ q.enqueue('Chris');
 // Palindromes
 
 console.log('-- Palindromes ----------------');
+
+function is_palindrome(string) {
+  const toLowerCase = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 let pStack = new Stack();
-function is_palindrome(string, s2) {
-  string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
   console.log('whats my stack?: ', pStack);
   console.log('whats my string?: ', string);
-  // loop
+
   for(let i = 0; i < string.length; i++) {
-    // push
+
     // console.log(i);
-    pStack.push(string);
+    // take every letter and push it into new Stack
+    let letter = toLowerCase.charAt(i);
+    console.log(letter);
+    pStack.push(letter);
   }
-  console.log('returned: ', string);
   return true;
 }
 
 // true, true, true
 console.log(is_palindrome('dad'));
-console.log(is_palindrome('A man, a plan, a canal: Panama'));
+// console.log(is_palindrome('A man, a plan, a canal: Panama'));
 console.log(is_palindrome('1002'));
 
 
+
+
+
+// Test Case for the parenthesis match... "(1 + 2) + 3"   ")1 + 2) + 3"   "[{'('}('')]"    "([({})])"
 
 
 
